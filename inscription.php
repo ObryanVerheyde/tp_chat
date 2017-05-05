@@ -35,7 +35,6 @@
       <br/>
       <form name="form2" method="POST">
         <input type="text" name="username" id="username" placeholder="Pseudo">
-        <br/>
         <p>
           <input type="submit" name="submit2" value="se connecter">
         </p>
