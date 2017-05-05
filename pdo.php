@@ -20,21 +20,21 @@
       $req->bindValue(':username', $_POST["username"]);
         if ($req->execute())
         {
-          echo "votre formulaire a été rempli, tu peux entrer avec le pseudo";
+          echo "Le formulaire d'inscription a été remplis, tu peux entrer avec ce pseudo";
         }
         else
         {
-          echo "rempli le formulaire";
+          echo "Remplis le formulaire !";
         }
       }
       else
       {
-      echo "tu dois remplir tous les champs";
+      echo "Tous les champs doivent être remplis !";
     }
   }
   else
   {
-    // echo "tu dois surement etre deja inscrit !";
+
   }
 
   if(isset($_POST["mssg"]))
@@ -61,7 +61,6 @@
         $req2 = $PDO->query("SELECT lastname, firstname FROM chat_ajax WHERE username = '$pseudo'");
         $answer = $req2->fetch();
         session_start();
-
         Header('location: message.php');
       }
       else
