@@ -30,6 +30,23 @@
           <input type="submit" name="mssg" value="Envoyer"/>
         </div>
 		  </form>
+      <?php
+        $allmsg = $PDO->query('SELECT * FROM chat_ajax ORDER BY id ASC');
+        while($msg = $allmsg->fetch())
+        {
+      ?>
+
+      <?php
+        echo $msg->username;
+      ?>
+      :
+      <?php
+        echo $msg->message;
+      ?>
+
+      <?php
+        }
+      ?>
 	  </div>
   </body>
 </html>
