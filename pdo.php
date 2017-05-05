@@ -20,7 +20,7 @@
       $req->bindValue(':username', $_POST["username"]);
         if ($req->execute())
         {
-          echo "Le formulaire d'inscription a été remplis, tu peux entrer avec ce pseudo";
+          echo "Le formulaire d'inscription a été remplis, tu peux entrer avec ce username";
         }
         else
         {
@@ -41,10 +41,10 @@
   {
   	if($_POST["message"] != "")
     {
-  		$pseudo = htmlspecialchars($_POST['username']);
+  		$username = htmlspecialchars($_POST['username']);
       $message = htmlspecialchars($_POST['message']);
   		$insertmsg = $PDO->prepare('INSERT INTO chat_ajax(username, message) VALUES(?, ?)');
-  		$insertmsg->execute(array($pseudo, $message));
+  		$insertmsg->execute(array($username, $message));
   	}
   }
 
@@ -53,12 +53,12 @@
   {
     if($_POST["username"] != "")
     {
-      $pseudo = $_POST['username'];
-      $req = $PDO->query("SELECT * FROM chat_ajax WHERE username = '$pseudo'");
+      $username = $_POST['username'];
+      $req = $PDO->query("SELECT * FROM chat_ajax WHERE username = '$username'");
       $rows = $req->rowCount();
       if ($rows == 1)
       {
-        $req2 = $PDO->query("SELECT lastname, firstname FROM chat_ajax WHERE username = '$pseudo'");
+        $req2 = $PDO->query("SELECT lastname, firstname FROM chat_ajax WHERE username = '$username'");
         $answer = $req2->fetch();
         session_start();
         Header('location: message.php');

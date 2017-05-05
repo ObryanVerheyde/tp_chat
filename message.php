@@ -12,6 +12,7 @@
     <meta charset="utf-8">
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
     <script type="text/javascript" src="verification.js"></script>
+    <link rel="stylesheet" href="css/style.css" />
   </head>
 
   <body>
@@ -19,9 +20,7 @@
 		  <div id="messages">
 		  </div>
 		  <form method="POST" action="">
-			  <p>
-          Message :
-        </p>
+        <h1>Message :</h1>
 
         <div class="message">
           <textarea type="text" name="message" id="message" placeholder="message"></textarea>

@@ -15,8 +15,8 @@
 
   <body id="imagesfeuille">
     <div id="center">
-      <p>Inscription</p>
-      <form name="form1" action="" method="POST">
+      <h1>Log In</h1>
+      <form name="form1" id="login" action="" method="POST">
         <input type="text" name="lastname" id="lastname" placeholder="Nom">
         <br/>
         <input type="text" name="firstname" id="firstname" placeholder="Prénom">
