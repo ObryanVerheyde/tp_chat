@@ -70,3 +70,51 @@
     }
   }
 ?>
+
+<?php
+
+try {
+    $PDO = new PDO('mysql:host=' . MYSQL_HOST . ';dbname=' . MYSQL_DB, MYSQL_USER, MYSQL_PASSWD);
+    $PDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
+    $PDO->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
+} catch (PDOException $e) {
+    $e->getMessage();
+}
+
+if(isset($_POST["form"]) && $_POST["form"] == "form1"){
+	$req = $PDO->prepare('INSERT INTO users (lastname, firstname, email, address) VALUES (:lastname, :firstname, :email, :address)');
+	$req->bindValue(":lastname", $_POST["lastname"]);
+	$req->bindValue(":firstname", $_POST["firstname"]);
+	$req->bindValue(":email", $_POST["email"]);
+	$req->bindValue(":address", $_POST["address"]);
+
+	if($req->execute()){
+		echo "Votre utilisateur a été créé";
+	}else{
+		echo "Une erreur s'est produite !";
+	}
+}
+
+if(isset($_POST["form"]) && $_POST["form"] == "form2"){
+	$req = $PDO->prepare('DELETE FROM users WHERE id=:id');
+	$req->bindValue(":id", $_POST["id"]);
+
+	if($req->execute()){
+		echo "Votre utilisateur a été supprimé";
+	}else{
+		echo "Une erreur s'est produite !";
+	}
+}
+
+if(isset($_POST["form"]) && $_POST["form"] == "getAll"){
+
+	$req = $PDO->prepare('SELECT * FROM users');
+	$req->execute();
+	$res = $req->fetchAll();
+
+	foreach($res as $data){
+		echo $data->lastname . " " . $data->firstname . " : " . $data->email . "<br />";
+	}
+}
+
+?>

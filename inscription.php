@@ -17,12 +17,15 @@
     <div id="center">
       <h1>Log In</h1>
       <form name="form1" id="login" action="" method="POST">
-        <input type="text" name="lastname" id="lastname" placeholder="Nom">
-        <br/>
-        <input type="text" name="firstname" id="firstname" placeholder="Prénom">
-        <br/>
-        <input type="text" name="username" id="username" placeholder="Pseudo (20max)">
-        <br/>
+        <p>
+          <input type="text" name="lastname" id="lastname" placeholder="Nom">
+        </p>
+        <p>
+          <input type="text" name="firstname" id="firstname" placeholder="Prénom">
+        </p>
+        <p>
+          <input type="text" name="username" id="username" placeholder="Pseudo (20max)">
+        </p>
         <p>
           <input type="submit" name="submit1" value="inscription">
         </p>
